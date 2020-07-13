@@ -15,13 +15,15 @@ class CountdownTimer {
   }
 
   start() {
-    setInterval(() => {
+    const updateClockface = () => {
       const currentTime = Date.now();
 
       const delta = this.targetDate - currentTime;
 
       clock(delta);
-    }, 1000);
+    };
+    updateClockface();
+    setInterval(updateClockface, 1000);
   }
 }
 
